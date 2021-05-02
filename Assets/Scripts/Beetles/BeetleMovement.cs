@@ -61,8 +61,8 @@ public class BeetleMovement : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, angle - 90f); 
     }
 
-    //private void Update()
-    //{
-    //    LerpMove(nodes[0], nodes[1], nodes[2]);
-    //}
+    public void SetActivePath(GameObject newPath)
+    {
+        path = newPath;
+    }
 }
