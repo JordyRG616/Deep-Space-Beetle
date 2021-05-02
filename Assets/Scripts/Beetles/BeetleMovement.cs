@@ -5,29 +5,38 @@ using UnityEngine;
 
 public class BeetleMovement : MonoBehaviour
 {
-    [SerializeField] private GameObject path;
-    [SerializeField][Range(0, 1f)] private float elapsedTime;
+    private float elapsedTime;
+    [SerializeField] private float totalTime = 1.5f;
     private List<Transform> nodes = new List<Transform>();
 
-    private void Awake()
+    private void SetNodes(GameObject path)
     {
+        nodes.Clear();
         nodes = path.GetComponentsInChildren<Transform>().ToList();
         nodes.Remove(path.transform);
 
         transform.position = nodes[0].position;
+        elapsedTime = 0f;
+        StartCoroutine(LerpMove(nodes[0], nodes[1], nodes[2]));
     }
 
-    private void LerpMove(Transform node1, Transform node2, Transform node3)
+    private IEnumerator LerpMove(Transform node1, Transform node2, Transform node3)
     {
-        Vector3 lerpNodes12 = Vector3.Lerp(node1.position, node2.position, elapsedTime);
-        Vector3 lerpNodes23 = Vector3.Lerp(node2.position, node3.position, elapsedTime);
+        while(elapsedTime <= totalTime)
+        {
+            Vector3 lerpNodes12 = Vector3.Lerp(node1.position, node2.position, (elapsedTime) / totalTime);
+            Vector3 lerpNodes23 = Vector3.Lerp(node2.position, node3.position, (elapsedTime) / totalTime);
 
-        Vector3 lerpTotal = Vector3.Lerp(lerpNodes12, lerpNodes23, elapsedTime);
-        Vector3 nextlerp = Vector3.LerpUnclamped(lerpNodes12, lerpNodes23, elapsedTime + 0.1f);
+            Vector3 lerpTotal = Vector3.Lerp(lerpNodes12, lerpNodes23, (elapsedTime) / totalTime);
+            Vector3 nextlerp = Vector3.LerpUnclamped(lerpNodes12, lerpNodes23, ((elapsedTime) / totalTime) + 0.1f);
 
-        transform.position = lerpTotal;
+            transform.position = lerpTotal;
 
-        AdjustRotation(transform.position, nextlerp);
+            AdjustRotation(transform.position, nextlerp);
+
+            yield return new WaitForSecondsRealtime(0.1f);
+            elapsedTime += 0.1f;
+        }
     }
 
     private void AdjustRotation(Vector3 pos, Vector3 posmaisDpos)
@@ -39,8 +48,18 @@ public class BeetleMovement : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, angle - 90f); 
     }
 
-    private void Update()
+    public void SetActivePath(GameObject newPath)
     {
-        LerpMove(nodes[0], nodes[1], nodes[2]);
+        SetNodes(newPath);
+    }
+
+    public (float elapsedTime, float totalTime) GetTimes()
+    {
+        return (elapsedTime, totalTime);
+    }
+
+    public GameObject GetLastNode()
+    {
+        return nodes[2].gameObject;
     }
 }
