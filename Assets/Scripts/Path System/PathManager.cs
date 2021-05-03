@@ -14,13 +14,13 @@ public class PathManager : MonoBehaviour
 
     private void Awake()
     {
-        allNodes = GameObject.FindGameObjectsWithTag("Node").ToList();
+        //allNodes = GameObject.FindGameObjectsWithTag("Node").ToList();
         beetle.SetActivePath(startPath);
     }
 
     private void Update()
     {
-        CheckNextPath();
+        //CheckNextPath();
     }
 
     private void CheckNextPath()
