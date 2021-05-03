@@ -8,6 +8,12 @@ public class BeetleMovement : MonoBehaviour
     private float elapsedTime;
     [SerializeField] private float totalTime = 1.5f;
     private List<Transform> nodes = new List<Transform>();
+    private Rigidbody2D body;
+
+    private void Awake()
+    {
+        body = GetComponent<Rigidbody2D>();
+    }
 
     private void SetNodes(GameObject path)
     {
@@ -22,21 +28,24 @@ public class BeetleMovement : MonoBehaviour
 
     private IEnumerator LerpMove(Transform node1, Transform node2, Transform node3)
     {
+
         while(elapsedTime <= totalTime)
         {
             Vector3 lerpNodes12 = Vector3.Lerp(node1.position, node2.position, (elapsedTime) / totalTime);
             Vector3 lerpNodes23 = Vector3.Lerp(node2.position, node3.position, (elapsedTime) / totalTime);
 
             Vector3 lerpTotal = Vector3.Lerp(lerpNodes12, lerpNodes23, (elapsedTime) / totalTime);
-            Vector3 nextlerp = Vector3.LerpUnclamped(lerpNodes12, lerpNodes23, ((elapsedTime) / totalTime) + 0.1f);
+            Vector3 nextPoint = Vector3.LerpUnclamped(lerpNodes12, lerpNodes23, ((elapsedTime) / totalTime) + 0.1f);
 
-            transform.position = lerpTotal;
+            body.MovePosition((Vector2)lerpTotal);
 
-            AdjustRotation(transform.position, nextlerp);
+            AdjustRotation(transform.position, nextPoint);
 
-            yield return new WaitForSecondsRealtime(0.1f);
-            elapsedTime += 0.1f;
+            yield return new WaitForSecondsRealtime(0.01f);
+            elapsedTime += 0.01f;
         }
+
+        Destroy(gameObject);
     }
 
     private void AdjustRotation(Vector3 pos, Vector3 posmaisDpos)
