@@ -20,23 +20,19 @@ public class PathManager : MonoBehaviour
 
     private void Update()
     {
-        //CheckNextPath();
+        CheckNextPath();
     }
 
     private void CheckNextPath()
     {
         if(beetle.GetTimes().elapsedTime >= beetle.GetTimes().totalTime)
         {
-            allNodes.Remove(beetle.GetLastNode());
-            foreach(GameObject node in allNodes)
+            Collider2D nextNode = Physics2D.OverlapCircle(beetle.transform.position, .3f);
+            if(nextNode != null)
             {
-                float distance = (beetle.GetLastNode().transform.position - node.transform.position).magnitude;
-
-                if(distance <= linkThreshold)
-                {
-                    nextPath = node.transform.parent.gameObject;
-                    beetle.SetActivePath(nextPath);
-                }
+                Debug.Log(nextNode.gameObject.name);
+                beetle.SetActivePath(nextNode.transform.parent.gameObject);
+                Destroy(nextNode);
             }
         }
     }

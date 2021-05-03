@@ -21,14 +21,13 @@ public class BeetleMovement : MonoBehaviour
         nodes = path.GetComponentsInChildren<Transform>().ToList();
         nodes.Remove(path.transform);
 
-        transform.position = nodes[0].position;
+        //transform.position = nodes[0].position;
         elapsedTime = 0f;
         StartCoroutine(LerpMove(nodes[0], nodes[1], nodes[2]));
     }
 
     private IEnumerator LerpMove(Transform node1, Transform node2, Transform node3)
     {
-
         while(elapsedTime <= totalTime)
         {
             Vector3 lerpNodes12 = Vector3.Lerp(node1.position, node2.position, (elapsedTime) / totalTime);
@@ -37,7 +36,7 @@ public class BeetleMovement : MonoBehaviour
             Vector3 lerpTotal = Vector3.Lerp(lerpNodes12, lerpNodes23, (elapsedTime) / totalTime);
             Vector3 nextPoint = Vector3.LerpUnclamped(lerpNodes12, lerpNodes23, ((elapsedTime) / totalTime) + 0.1f);
 
-            body.MovePosition((Vector2)lerpTotal);
+            transform.position = lerpTotal;
 
             AdjustRotation(transform.position, nextPoint);
 
@@ -45,7 +44,7 @@ public class BeetleMovement : MonoBehaviour
             elapsedTime += 0.01f;
         }
 
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 
     private void AdjustRotation(Vector3 pos, Vector3 posmaisDpos)

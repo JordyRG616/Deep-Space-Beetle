@@ -503,9 +503,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1016853533773017040, guid: 1a72b6cd0cc548d43bb4b42f747b78f1, type: 3}
+      propertyPath: m_Radius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1016853533773017040, guid: 1a72b6cd0cc548d43bb4b42f747b78f1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1016853533773017040, guid: 1a72b6cd0cc548d43bb4b42f747b78f1, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1016853533773017040, guid: 1a72b6cd0cc548d43bb4b42f747b78f1, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1016853533773017040, guid: 1a72b6cd0cc548d43bb4b42f747b78f1, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4362743928338297291, guid: 1a72b6cd0cc548d43bb4b42f747b78f1, type: 3}
       propertyPath: m_Name
       value: Beetle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4362743928338297292, guid: 1a72b6cd0cc548d43bb4b42f747b78f1, type: 3}
+      propertyPath: totalTime
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4362743928338297294, guid: 1a72b6cd0cc548d43bb4b42f747b78f1, type: 3}
       propertyPath: m_RootOrder
@@ -551,5 +575,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4204907645991265265, guid: 1a72b6cd0cc548d43bb4b42f747b78f1, type: 3}
+    - {fileID: 1016853533773017040, guid: 1a72b6cd0cc548d43bb4b42f747b78f1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1a72b6cd0cc548d43bb4b42f747b78f1, type: 3}
