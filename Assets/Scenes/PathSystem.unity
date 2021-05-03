@@ -507,14 +507,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beetle
       objectReference: {fileID: 0}
-    - target: {fileID: 4362743928338297292, guid: 1a72b6cd0cc548d43bb4b42f747b78f1, type: 3}
-      propertyPath: path
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4362743928338297292, guid: 1a72b6cd0cc548d43bb4b42f747b78f1, type: 3}
-      propertyPath: totalTime
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 4362743928338297294, guid: 1a72b6cd0cc548d43bb4b42f747b78f1, type: 3}
       propertyPath: m_RootOrder
       value: 5
