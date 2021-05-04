@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5902886763246535511}
   - component: {fileID: 802068089}
-  - component: {fileID: 2578091647744018415}
   m_Layer: 0
   m_Name: Node1
   m_TagString: Node
@@ -47,19 +46,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
---- !u!114 &2578091647744018415
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5902886763246535510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e3aa8699e546c84b8ed7ca65763cc0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Radius: 0.3
 --- !u!1 &5902886763296169575
 GameObject:
   m_ObjectHideFlags: 0
@@ -71,7 +58,7 @@ GameObject:
   - component: {fileID: 5902886763296169572}
   m_Layer: 0
   m_Name: Node3
-  m_TagString: Node
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,7 +120,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5902886763800241536}
   - component: {fileID: 1773004099}
-  - component: {fileID: 313978553389993200}
   m_Layer: 0
   m_Name: Node1
   m_TagString: Node
@@ -170,19 +156,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
---- !u!114 &313978553389993200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5902886763800241539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e3aa8699e546c84b8ed7ca65763cc0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Radius: 0.3
 --- !u!1 &5902886763966838435
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,7 +252,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5902886764007423200}
   - component: {fileID: 1494128217}
-  - component: {fileID: 3998751501662552626}
   m_Layer: 0
   m_Name: Node1
   m_TagString: Node
@@ -315,19 +288,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
---- !u!114 &3998751501662552626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5902886764007423203}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e3aa8699e546c84b8ed7ca65763cc0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Radius: 0.3
 --- !u!1 &5902886764230373931
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,7 +300,7 @@ GameObject:
   - component: {fileID: 5902886764230373928}
   m_Layer: 0
   m_Name: Node2
-  m_TagString: Node
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -369,7 +330,7 @@ GameObject:
   - component: {fileID: 5902886764294089948}
   m_Layer: 0
   m_Name: Node2
-  m_TagString: Node
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -399,7 +360,7 @@ GameObject:
   - component: {fileID: 5902886764960283758}
   m_Layer: 0
   m_Name: Node2
-  m_TagString: Node
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -429,7 +390,7 @@ GameObject:
   - component: {fileID: 5902886765073942022}
   m_Layer: 0
   m_Name: Node3
-  m_TagString: Node
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -525,7 +486,7 @@ GameObject:
   - component: {fileID: 5902886765164728822}
   m_Layer: 0
   m_Name: Node3
-  m_TagString: Node
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
