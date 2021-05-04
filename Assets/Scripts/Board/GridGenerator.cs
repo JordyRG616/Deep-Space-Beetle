@@ -52,4 +52,12 @@ public class GridGenerator : MonoBehaviour
 
         return (_x, _y);
     }
+
+    public GridCell GetCell(float XWorldPosition, float YWorldPosition)
+    {
+        int _x = GetCellPositionIndex(XWorldPosition, YWorldPosition).x;
+        int _y = GetCellPositionIndex(XWorldPosition, YWorldPosition).y;
+
+        return cells[_x, _y];
+    }
 }
