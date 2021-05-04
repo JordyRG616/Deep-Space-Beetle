@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1726184564009153070
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1726184564009153068}
+  - component: {fileID: 1726184564009153069}
+  m_Layer: 0
+  m_Name: DeckManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1726184564009153068
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726184564009153070}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.6701508, y: 3.1542559, z: -14.881487}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1726184564009153069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726184564009153070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef72a64931fbdf944ba3dad8cfa63768, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseDeck:
+  - {fileID: 2589175777610413710, guid: f4740c935640aeb438a2cb8d0523343e, type: 3}
+  - {fileID: 2589175777610413710, guid: 9a0633298fb4ea04aabba990cf9c9e88, type: 3}
+  - {fileID: 2589175777610413710, guid: 3df83508817b83d40b12898675f2d70d, type: 3}
+  - {fileID: 2589175777610413710, guid: aaa3dbefe08494844bc49253cf9b299f, type: 3}
+  - {fileID: 2589175777610413710, guid: 12e6eb3e3bee8ba45a22eb67c9407ab3, type: 3}
+  handSize: 0
