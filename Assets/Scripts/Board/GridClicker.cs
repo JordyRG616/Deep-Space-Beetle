@@ -15,7 +15,7 @@ public class GridClicker : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0) && ClickedOnGrid())
+        if(Input.GetMouseButtonDown(0))
         {
             InstantiateNewTile(ReturnWorldPosition().x, ReturnWorldPosition().y);
         }
@@ -35,9 +35,16 @@ public class GridClicker : MonoBehaviour
 
     private void InstantiateNewTile(float x, float y)
     {
-        Vector3 tilePosition = new Vector3 (x, y, 0);
-        GameObject tile = Instantiate(tileSample, tilePosition, Quaternion.identity);
+        float Xposition = Camera.main.ScreenToWorldPoint(Input.mousePosition).x;
+        float Yposition = Camera.main.ScreenToWorldPoint(Input.mousePosition).y;
 
+        if(ClickedOnGrid() && !grid.GetCell(Xposition, Yposition).GetHasTile())
+        {
+            Vector3 tilePosition = new Vector3 (x, y, 0);
+            GameObject tile = Instantiate(tileSample, tilePosition, Quaternion.identity);
+
+            grid.GetCell(Xposition, Yposition).SetHasTile(true);
+        }
     }
 
     private bool ClickedOnGrid()
@@ -58,5 +65,10 @@ public class GridClicker : MonoBehaviour
         {
             return true;
         }
+    }
+
+    public void SetTileSample(GameObject tile)
+    {
+        tileSample = tile;
     }
 }

@@ -39,8 +39,8 @@ public class GridGenerator : MonoBehaviour
 
     public (int x, int y) GetCellPositionIndex(float posX, float posY)
     {
-        int _x = (int)((posX - transform.position.x) * (6f / 9.8f));
-        int _y = (int)((posY - transform.position.y) * (6f / 9.8f));
+        int _x = Mathf.FloorToInt((posX - transform.position.x) * (6f / 9.8f));
+        int _y = Mathf.FloorToInt((posY - transform.position.y) * (6f / 9.8f));
 
         return (_x, _y);
     }
@@ -51,5 +51,13 @@ public class GridGenerator : MonoBehaviour
         float _y = ((9.8f / 6f) * indexY) + transform.position.y;
 
         return (_x, _y);
+    }
+
+    public GridCell GetCell(float XWorldPosition, float YWorldPosition)
+    {
+        int _x = GetCellPositionIndex(XWorldPosition, YWorldPosition).x;
+        int _y = GetCellPositionIndex(XWorldPosition, YWorldPosition).y;
+
+        return cells[_x, _y];
     }
 }
