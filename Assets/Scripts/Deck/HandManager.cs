@@ -14,11 +14,11 @@ public class HandManager : MonoBehaviour
 
     public void AddCard(GameObject card)
     {
-        hand.Add(card);
         foreach(Slot slot in slots)
         {
             if(!slot.HasCard())
             {
+                hand.Add(card);
                 slot.ReceiveCard(card);
                 break;
             }

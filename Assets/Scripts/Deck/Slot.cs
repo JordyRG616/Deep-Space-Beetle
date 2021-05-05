@@ -7,10 +7,12 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     private Image image;
     private bool ocuppied;
     private GameObject cardHolder;
+    private GridClicker clicker;
 
     private void Awake()
     {
         image = GetComponent<Image>();
+        clicker = FindObjectOfType<GridClicker>();
     }
 
     public bool HasCard()
@@ -28,6 +30,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log(cardHolder.name);
+        clicker.SetTileSample(cardHolder);
     }
 }
