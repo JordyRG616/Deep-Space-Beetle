@@ -6,6 +6,7 @@ public class GridGenerator : MonoBehaviour
 {
     private GridCell[,] cells;
     [SerializeField] private Vector2Int gridSize;
+    [SerializeField] private Transform startingTile;
 
     private void Awake()
     {
@@ -15,6 +16,7 @@ public class GridGenerator : MonoBehaviour
     private void Start()
     {
         GenerateGrid();
+        GetCell(startingTile.position.x, startingTile.position.y).SetHasTile(true);
     }
 
     private void GenerateGrid()
@@ -37,10 +39,10 @@ public class GridGenerator : MonoBehaviour
         }
     }
 
-    public (int x, int y) GetCellPositionIndex(float posX, float posY)
+    public (int x, int y) GetCellPositionIndex(float worldPosX, float worldPosY)
     {
-        int _x = Mathf.FloorToInt((posX - transform.position.x) * (6f / 9.8f));
-        int _y = Mathf.FloorToInt((posY - transform.position.y) * (6f / 9.8f));
+        int _x = (int)((worldPosX - transform.position.x) * (6f / 9.8f));
+        int _y = (int)((worldPosY - transform.position.y) * (6f / 9.8f));
 
         return (_x, _y);
     }
@@ -59,5 +61,10 @@ public class GridGenerator : MonoBehaviour
         int _y = GetCellPositionIndex(XWorldPosition, YWorldPosition).y;
 
         return cells[_x, _y];
+    }
+
+    public GridCell GetCell(int XindexPosition, int YindexPosition)
+    {
+        return cells[XindexPosition, YindexPosition];
     }
 }
