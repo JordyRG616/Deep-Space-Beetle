@@ -46,11 +46,6 @@ public class BeetlesManager : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(activePath.Count);
-    }
-
-    /*private void Update()
-    {
         if(activePath.Count <= 0 && state == PathState.Closed)
         {
             StopAllCoroutines();
@@ -62,7 +57,7 @@ public class BeetlesManager : MonoBehaviour
             StopAllCoroutines();
             Destroy(beetle.gameObject);
         }
-    }*/
+    }
 
     private IEnumerator MoveBeetle(Beetle beetle)
     {

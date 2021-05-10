@@ -1,3 +1,4 @@
+using System;
 using System.Reflection;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,17 +10,27 @@ public class DeckManager : MonoBehaviour
     [SerializeField] private int handSize;
     private Queue<GameObject> deck = new Queue<GameObject>();
     private HandManager hand;
+
+
     private void Awake()
     {
         Shuffle();
         hand = FindObjectOfType<HandManager>();
     }
 
+    void Start()
+    {
+        for (int i = 0; i <+ handSize; i++)
+        {
+            DrawnCard();
+        }
+    }
+
     private void Shuffle()
     {
         while(baseDeck.Count > 0)
         {
-            int rdm = Random.Range(0, baseDeck.Count);
+            int rdm = UnityEngine.Random.Range(0, baseDeck.Count);
             GameObject cardContainer = baseDeck[rdm];
 
             deck.Enqueue(cardContainer);
@@ -27,7 +38,7 @@ public class DeckManager : MonoBehaviour
         }
     }
 
-    private void DrawnCard()
+    public void DrawnCard()
     {
         if(deck.Count > 0)
         {
@@ -35,11 +46,4 @@ public class DeckManager : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if(Input.GetMouseButtonDown(1))
-        {
-            DrawnCard();
-        }
-    }
 }

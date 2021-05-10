@@ -1,5 +1,4 @@
-using System.Runtime.CompilerServices;
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,20 +6,37 @@ public class GridClicker : MonoBehaviour
 {
     GridGenerator grid;
     GameObject tileSample;
+    private InputMaster input;
+
+    public event EventHandler OnTilePlaced;
+
+
 
     private void Awake()
     {
+        input = FindObjectOfType<InputMaster>();
+        input.OnLeftMousePressed += PlaceTile;
+
         grid = GetComponent<GridGenerator>();
     }
 
-    private void Update()
+    public void PlaceTile(object sender, EventArgs e)
+    {
+        if(NeighbourHasTile())
+        {
+            InstantiateNewTile(ReturnWorldPosition().x, ReturnWorldPosition().y);
+            OnTilePlaced?.Invoke(this, TileEventArgs.Empty);
+        }
+    }
+
+    /*private void Update()
     {
         
         if(Input.GetMouseButtonDown(0) && NeighbourHasTile())
         {
             InstantiateNewTile(ReturnWorldPosition().x, ReturnWorldPosition().y);
         }
-    }
+    }*/
 
     private (float x, float y) ReturnWorldPosition()
     {
@@ -115,4 +131,14 @@ public class GridClicker : MonoBehaviour
 
         return false;
     }
+
+    void OnDisable()
+    {
+        input.OnLeftMousePressed -= PlaceTile;
+    }
+}
+
+public class TileEventArgs : EventArgs
+{
+
 }

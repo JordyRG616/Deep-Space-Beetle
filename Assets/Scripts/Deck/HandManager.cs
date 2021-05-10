@@ -24,4 +24,11 @@ public class HandManager : MonoBehaviour
             }
         }
     }
+
+    public Slot[] GetSlots()
+    {
+        return slots;
+    }
+
+
 }
