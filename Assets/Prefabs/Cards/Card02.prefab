@@ -52,6 +52,8 @@ MonoBehaviour:
   - {fileID: 1064694391067238299}
   - {fileID: 2878662282973611642}
   isActivePath: 0
+  isFinished: 0
+  inverted: 0
 --- !u!1 &2225147743842016242
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,6 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4bb4b1ea2ecd74281b7127d4eef643, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inverseDirection: 0
 --- !u!50 &9114419278202522373
 Rigidbody2D:
   serializedVersion: 4
@@ -329,6 +332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4bb4b1ea2ecd74281b7127d4eef643, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inverseDirection: 1
 --- !u!50 &6638823083964361217
 Rigidbody2D:
   serializedVersion: 4
@@ -421,6 +425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4bb4b1ea2ecd74281b7127d4eef643, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inverseDirection: 1
 --- !u!50 &518386528648387761
 Rigidbody2D:
   serializedVersion: 4
@@ -524,6 +529,8 @@ MonoBehaviour:
   - {fileID: 6487546451676812816}
   - {fileID: 9187768814144155832}
   isActivePath: 0
+  isFinished: 0
+  inverted: 0
 --- !u!1 &9130080555764741773
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,6 +602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4bb4b1ea2ecd74281b7127d4eef643, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inverseDirection: 0
 --- !u!50 &6632441546027538147
 Rigidbody2D:
   serializedVersion: 4

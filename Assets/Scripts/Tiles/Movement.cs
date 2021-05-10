@@ -11,6 +11,7 @@ public class Movement : MonoBehaviour
     private float elapsedTime;
     public bool isActivePath = false;
     public bool isFinished = false;
+    public bool inverted;
 
     public void DoMovement(Transform target, float time)
     {
@@ -19,30 +20,35 @@ public class Movement : MonoBehaviour
         switch(type)
         {
             case MovementType.Straight:
-                if(entryPoint = nodes[0])
+
+                if(inverted == false)
                 {
                     StartCoroutine(StraightMove(target, nodes[0], nodes[1]));
-                } else
+                } else if(inverted == true)
                   {
                     StartCoroutine(StraightMove(target, nodes[1], nodes[0]));
                   }
                 break;
+
             case MovementType.Curve:
-                if(entryPoint = nodes[0])
+
+                if(inverted == false)
                 {
-                StartCoroutine(CurveMove(target, nodes[0], nodes[1], nodes[2]));
-                } else
+                    StartCoroutine(CurveMove(target, nodes[0], nodes[1], nodes[2]));
+                } else if(inverted == true)
                     {
-                StartCoroutine(CurveMove(target, nodes[2], nodes[1], nodes[0]));
+                        StartCoroutine(CurveMove(target, nodes[2], nodes[1], nodes[0]));
                     }
                 break;
+
             case MovementType.Turn:
-                if(entryPoint = nodes[0])
+
+                if(inverted == false)
                 {
-                StartCoroutine(TurnMove(target, nodes[0], nodes[1], nodes[2]));
-                } else
+                    StartCoroutine(TurnMove(target, nodes[0], nodes[1], nodes[2]));
+                } else if(inverted == true)
                     {
-                StartCoroutine(TurnMove(target, nodes[2], nodes[1], nodes[0]));
+                        StartCoroutine(TurnMove(target, nodes[2], nodes[1], nodes[0]));
                     }
                 break;
         }

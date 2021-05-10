@@ -52,6 +52,8 @@ MonoBehaviour:
   - {fileID: 3281162479172990829}
   - {fileID: 6032532391463488923}
   isActivePath: 0
+  isFinished: 0
+  inverted: 0
 --- !u!1 &2589175777610413710
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,6 +220,8 @@ MonoBehaviour:
   - {fileID: 2308185399705330047}
   - {fileID: 5192244110432430457}
   isActivePath: 0
+  isFinished: 0
+  inverted: 0
 --- !u!1 &7346490991105576818
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,8 +262,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6032532391463488923}
   - component: {fileID: 699904396236475595}
-  - component: {fileID: 3177537420246743808}
   - component: {fileID: 8247227478604732483}
+  - component: {fileID: 834444267168670952}
   m_Layer: 0
   m_Name: Node
   m_TagString: Untagged
@@ -307,18 +311,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.1}
   m_EdgeRadius: 0
---- !u!114 &3177537420246743808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7596219143403300101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e3aa8699e546c84b8ed7ca65763cc0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &8247227478604732483
 Rigidbody2D:
   serializedVersion: 4
@@ -340,6 +332,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &834444267168670952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7596219143403300101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e4bb4b1ea2ecd74281b7127d4eef643, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inverseDirection: 1
 --- !u!1 &8154269193659686116
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,6 +416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4bb4b1ea2ecd74281b7127d4eef643, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inverseDirection: 0
 --- !u!50 &8263056086072841733
 Rigidbody2D:
   serializedVersion: 4
@@ -503,6 +509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4bb4b1ea2ecd74281b7127d4eef643, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inverseDirection: 1
 --- !u!50 &8070290619760587424
 Rigidbody2D:
   serializedVersion: 4
@@ -595,6 +602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4bb4b1ea2ecd74281b7127d4eef643, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inverseDirection: 0
 --- !u!50 &2530647261858731463
 Rigidbody2D:
   serializedVersion: 4
