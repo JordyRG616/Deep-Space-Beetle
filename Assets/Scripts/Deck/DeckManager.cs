@@ -46,4 +46,11 @@ public class DeckManager : MonoBehaviour
         }
     }
 
+    public void AddToDeck(GameObject item)
+    {
+        deck.Enqueue(item);
+        Shuffle();
+        Debug.Log(deck.Count);
+    }
+
 }

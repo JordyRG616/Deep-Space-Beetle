@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum PathState {Moving, Closed, Dead}
 
 public class BeetlesManager : MonoBehaviour
 {
     private Queue<Movement> activePath =  new Queue<Movement>();
-    private Queue<Movement> finalPath = new Queue<Movement>();
     [SerializeField] private Beetle beetle;
     [SerializeField] private Movement initialMovement;
     [SerializeField] private Transform nodePosition;
@@ -26,12 +26,12 @@ public class BeetlesManager : MonoBehaviour
 
     public void AddToActivePath(Movement movement)
     {
-        if(movement == initialMovement && closePathAllowed < 2)
+        if(movement == initialMovement && closePathAllowed < 1)
         {
             closePathAllowed ++;
         }
 
-        else if(movement == initialMovement && closePathAllowed == 2)
+        else if(movement == initialMovement && closePathAllowed == 1)
         {
             state = PathState.Closed;
         }
@@ -39,23 +39,23 @@ public class BeetlesManager : MonoBehaviour
         else if(!movement.isActivePath)
         {
             activePath.Enqueue(movement);
-            finalPath.Enqueue(movement);
             movement.isActivePath = true;
         }
     }
 
     private void Update()
     {
-        if(activePath.Count <= 0 && state == PathState.Closed)
+        Debug.Log(state);
+        
+        if(activePath.Count == 0  && state == PathState.Closed)
         {
-            StopAllCoroutines();
-            StartCoroutine(LoopForever(beetle));
+            StartCoroutine(WaitForLoop(beetle));
         }
 
-        if(activePath.Count <= 0 && state == PathState.Dead)
+        if(activePath.Count == 0 && state == PathState.Dead)
         {
             StopAllCoroutines();
-            Destroy(beetle.gameObject);
+            SceneManager.LoadScene("Derrota");
         }
     }
 
@@ -65,24 +65,30 @@ public class BeetlesManager : MonoBehaviour
         {
             Movement activeMovement = activePath.Dequeue();
             activeMovement.DoMovement(beetle.transform, beetle.speed);
-            
-            
 
             yield return new WaitUntil(() => activeMovement.isFinished == true);
 
         }
+
+        if(activePath.Count == 0)
+        {
+            state = PathState.Dead;
+        }
     }
 
-    private IEnumerator LoopForever(Beetle beetle)
+    private IEnumerator WaitForLoop(Beetle beetle)
     {
-        while(state == PathState.Closed)
-        {
-            Movement activeMovement = finalPath.Dequeue();
-            activeMovement.DoMovement(beetle.transform, beetle.speed);
+        yield return new WaitForSecondsRealtime(beetle.speed + 0.2f);
+        SceneManager.LoadScene("Vitoria");
+    }
 
-            yield return new WaitUntil(() => activeMovement.isFinished == true);                
+    public Movement GetInitialMovement()
+    {
+        return initialMovement;
+    }
 
-            finalPath.Enqueue(activeMovement);
-        }
+    public int GetCloseAllowance()
+    {
+        return closePathAllowed;
     }
 }

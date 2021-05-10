@@ -18,9 +18,15 @@ public class Node : MonoBehaviour
     {
         if(other.GetComponentInParent<Movement>().isActivePath)
         {
+            
             if(!movement.isActivePath)
             {
                 movement.inverted = inverseDirection;
+                
+            }
+            if(movement == beetlesManager.GetInitialMovement() && beetlesManager.GetCloseAllowance() == 1)
+            {
+                other.GetComponentInParent<Movement>().inverted = true; 
             }
             movement.SetEntryPoint(this.transform);
             beetlesManager.AddToActivePath(movement);

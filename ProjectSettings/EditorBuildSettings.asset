@@ -8,7 +8,19 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/BeetleMovement.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Deck System.unity
     guid: a274803d6dd61bf43b0c48732f1f1ba6
+  - enabled: 1
+    path: Assets/Scenes/First Screen.unity
+    guid: 24703de0c1e018b43a0bcc7676ef94ea
+  - enabled: 1
+    path: Assets/Scenes/Tile System.unity
+    guid: c11a331d0c5205d41ae334411909e25d
+  - enabled: 1
+    path: Assets/Scenes/Derrota.unity
+    guid: ff97abc1488e8984e9a5b26f5555165d
+  - enabled: 1
+    path: Assets/Scenes/Vitoria.unity
+    guid: de1eaaf10e387c74eba7bdc18bec0bdd
   m_configObjects: {}

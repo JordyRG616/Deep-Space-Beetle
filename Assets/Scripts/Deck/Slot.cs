@@ -20,7 +20,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         deck = FindObjectOfType<DeckManager>();
         input = FindObjectOfType<InputMaster>();
 
-        input.OnRightMousePressed += RemoveTile;
+        input.OnRightMousePressed += ResetTile;
         
     }
 
@@ -52,6 +52,14 @@ public class Slot : MonoBehaviour, IPointerClickHandler
 
     public void RemoveTile(object sender, EventArgs e)
     {
+        ReceiveDefaultSlot(defaultSlot);
+        deck.DrawnCard();
+        clicker.OnTilePlaced -= RemoveTile;
+    }
+
+    public void ResetTile(object sender, EventArgs e)
+    {
+        deck.AddToDeck(cardHolder);
         ReceiveDefaultSlot(defaultSlot);
         deck.DrawnCard();
         clicker.OnTilePlaced -= RemoveTile;

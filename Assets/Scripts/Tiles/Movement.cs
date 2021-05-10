@@ -57,14 +57,16 @@ public class Movement : MonoBehaviour
     private IEnumerator StraightMove(Transform target, Transform pointA, Transform pointB)
     {
         isFinished = false;
+
+        AdjustRotation(target, pointA.position, pointB.position);
+
+
         while(elapsedTime <= totalTime)
         {
             Vector3 move = Vector3.Lerp(pointA.position, pointB.position, elapsedTime / totalTime);
             Vector3 nextPoint = Vector3.LerpUnclamped(pointA.position, pointB.position, (elapsedTime / totalTime) + 0.1f);
 
             target.transform.position = move;
-            
-            AdjustRotation(target, transform.position, nextPoint);
             
             yield return new WaitForSecondsRealtime(0.01f);
             elapsedTime += 0.01f;
@@ -101,6 +103,9 @@ public class Movement : MonoBehaviour
     private IEnumerator TurnMove(Transform target, Transform pointA, Transform pointB, Transform pointC)
     {
         isFinished = false;
+
+        AdjustRotation(target, pointA.position, pointB.position);
+
         while(elapsedTime <= totalTime * 0.75f)
         {
             Vector3 move = Vector3.Lerp(pointA.position, pointB.position, elapsedTime / (totalTime * 0.75f));
@@ -108,13 +113,15 @@ public class Movement : MonoBehaviour
 
             target.transform.position = move;
 
-            AdjustRotation(target, transform.position, nextPoint);
+            //AdjustTurnRotation(target, transform.position, pointB.position);
 
             yield return new WaitForSecondsRealtime(0.01f);
             elapsedTime += 0.01f;
         }
 
         elapsedTime = 0f;
+
+        AdjustRotation(target, pointB.position, pointC.position);
 
         while(elapsedTime <= totalTime *0.25f)
         {
@@ -123,7 +130,7 @@ public class Movement : MonoBehaviour
 
             target.transform.position = move;
 
-            AdjustRotation(target, transform.position, nextPoint);
+            //AdjustTurnRotation(target, transform.position, pointC.position);
 
             yield return new WaitForSecondsRealtime(0.01f);
             elapsedTime += 0.01f;
@@ -140,6 +147,15 @@ public class Movement : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         target.rotation = Quaternion.Euler(0, 0, angle - 90f); 
+    }
+
+    private void AdjustTurnRotation(Transform target, Vector3 pos, Vector3 posmaisDpos)
+    {
+        Vector3 direction = (posmaisDpos - pos).normalized;
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        target.rotation = Quaternion.Euler(0, 0, angle); 
     }
 
     public void SetEntryPoint(Transform nodeTransform)
