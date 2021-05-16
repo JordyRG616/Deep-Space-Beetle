@@ -6,6 +6,28 @@ using UnityEngine;
 
 public class DeckManager : MonoBehaviour
 {
+    #region SINGLETON
+    private static DeckManager _instance;
+    public static DeckManager Main
+    {
+        get
+        {
+            if(_instance == null)
+            {
+                _instance = FindObjectOfType<DeckManager>();
+
+                if(_instance == null)
+                {
+                    GameObject container = new GameObject("Action Archive");
+                    _instance = container.AddComponent<DeckManager>();
+                }
+            }              
+
+            return _instance;
+        } 
+    }
+    #endregion
+
     [SerializeField] List<GameObject> baseDeck = new List<GameObject>();
     [SerializeField] private int handSize;
     private Queue<GameObject> deck = new Queue<GameObject>();
@@ -53,4 +75,9 @@ public class DeckManager : MonoBehaviour
         Debug.Log(deck.Count);
     }
 
+    public GameObject GetCard()
+    {
+        return deck.Dequeue();
+    }
+    
 }

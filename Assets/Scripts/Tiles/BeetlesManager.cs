@@ -8,17 +8,22 @@ public enum PathState {Moving, Closed, Dead}
 public class BeetlesManager : MonoBehaviour
 {
     private Queue<Movement> activePath =  new Queue<Movement>();
-    [SerializeField] private Beetle beetle;
-    [SerializeField] private Movement initialMovement;
-    [SerializeField] private Transform nodePosition;
+    private Beetle beetle;
+    private Movement initialMovement;
     private PathState state = PathState.Moving;
     private int closePathAllowed = 0;
+    private GridManager grid;
 
     private void Awake()
     {
-        //beetle = GetComponent<Beetle>();
+        beetle = GetComponent<Beetle>();
+        grid = FindObjectOfType<GridManager>();
 
-        initialMovement.SetEntryPoint(nodePosition);
+    }
+
+    public void StartMovement()
+    {
+        initialMovement = grid.InitialTile.GetComponentInChildren<Movement>();
         activePath.Enqueue(initialMovement);
         initialMovement.isActivePath = true;
         StartCoroutine(MoveBeetle(beetle));

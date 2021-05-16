@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1726184564009153068}
   - component: {fileID: 1726184564009153069}
+  - component: {fileID: 1196419892}
   m_Layer: 0
   m_Name: DeckManager
   m_TagString: Untagged
@@ -49,4 +50,47 @@ MonoBehaviour:
   - {fileID: 2589175777610413710, guid: 3df83508817b83d40b12898675f2d70d, type: 3}
   - {fileID: 2589175777610413710, guid: aaa3dbefe08494844bc49253cf9b299f, type: 3}
   - {fileID: 2589175777610413710, guid: 12e6eb3e3bee8ba45a22eb67c9407ab3, type: 3}
-  handSize: 0
+  - {fileID: 2589175777610413710, guid: bfd88db7431e2d44cb34dc67f2521309, type: 3}
+  - {fileID: 2589175777610413710, guid: b1cff1d1bd750584ba6562ae8f0d06eb, type: 3}
+  - {fileID: 2589175777610413710, guid: dd8fd03296e873949b4d77f36766fb06, type: 3}
+  - {fileID: 2589175777610413710, guid: 205238456ff49ff489ae35ade6525a13, type: 3}
+  - {fileID: 2589175777610413710, guid: 9f9658c1a5348bb4c96385c6d6836538, type: 3}
+  - {fileID: 2589175777610413710, guid: a73e1da29370e1840a4427d586c41fc3, type: 3}
+  - {fileID: 2589175777610413710, guid: e86a5ca035c1a7f4ba26261e16282847, type: 3}
+  - {fileID: 2589175777610413710, guid: feeda806eb701264da5b2f1a1a70e160, type: 3}
+  - {fileID: 2589175777610413710, guid: 29b11253e31ae234bbb8a18c6df45783, type: 3}
+  - {fileID: 2589175777610413710, guid: d51cb9180d605984da718c9aaa2f6a51, type: 3}
+  - {fileID: 2589175777610413710, guid: d4d1531672586bf4595c054fd7c1109f, type: 3}
+  - {fileID: 2589175777610413710, guid: 793e71771384dba4ea73e2428fadcdcd, type: 3}
+  - {fileID: 2589175777610413710, guid: f454a8a682fe8724cb6e1599e5408f77, type: 3}
+  - {fileID: 2589175777610413710, guid: 8a49d706713eb7345a83f55dcc530663, type: 3}
+  - {fileID: 2589175777610413710, guid: 74c0d67201b42d54f979190ae625dd6d, type: 3}
+  - {fileID: 2589175777610413710, guid: 4fa388af0430e2d43a0fd785d7f77916, type: 3}
+  - {fileID: 2589175777610413710, guid: 87e8ae5d83115d0478eca2f2126146a3, type: 3}
+  - {fileID: 2589175777610413710, guid: e836cfd3226e30341804aece1ba60740, type: 3}
+  - {fileID: 2589175777610413710, guid: 8742905b29af14745b81a226b8a970e2, type: 3}
+  - {fileID: 2589175777610413710, guid: 9bd38864ec80f6344b4fb6f90f1dfaa0, type: 3}
+  - {fileID: 2589175777610413710, guid: e5720f6e905b0914aa964b033a69b1a1, type: 3}
+  - {fileID: 2589175777610413710, guid: 55dabdac5e313d74c9fa51e7b265afa2, type: 3}
+  - {fileID: 2589175777610413710, guid: 049574048f1d77a4d9e133ae7dbde8e0, type: 3}
+  - {fileID: 2589175777610413710, guid: 5309ad71ad714244482e54b0ff7e1d08, type: 3}
+  - {fileID: 2589175777610413710, guid: 4268c4a00277ab348826c4d2e82c43e2, type: 3}
+  - {fileID: 2589175777610413710, guid: a3e232b871292724aafbfbe2a0d1d423, type: 3}
+  - {fileID: 2589175777610413710, guid: 3422f2b99c8939940a6e13aab34f97f1, type: 3}
+  - {fileID: 2589175777610413710, guid: 7120e267410f83d4fb08405c9a95fe1a, type: 3}
+  - {fileID: 2589175777610413710, guid: 12d660845164c024bb4aad62fae79add, type: 3}
+  - {fileID: 2589175777610413710, guid: 1649e956566449f4dbc2cc7d88f7fc6b, type: 3}
+  - {fileID: 2589175777610413710, guid: ce345d59b569a1947a32ccd6f15ae3ba, type: 3}
+  handSize: 3
+--- !u!114 &1196419892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726184564009153070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f190b12374d27449eb40dbf7616c30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

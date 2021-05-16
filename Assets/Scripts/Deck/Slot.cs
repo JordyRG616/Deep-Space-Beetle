@@ -8,19 +8,17 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     private Image image;
     private bool ocuppied;
     private GameObject cardHolder;
-    private GridClicker clicker;
+    private GridManager grid;
     private GameObject defaultSlot;
-    private DeckManager deck;
     private InputMaster input;
 
     private void Awake()
     {
         image = GetComponent<Image>();
-        clicker = FindObjectOfType<GridClicker>();
-        deck = FindObjectOfType<DeckManager>();
-        input = FindObjectOfType<InputMaster>();
+        grid = FindObjectOfType<GridManager>();
+        //input = FindObjectOfType<InputMaster>();
 
-        input.OnRightMousePressed += ResetTile;
+        InputMaster.Main.OnRightMousePressed += ResetTile;
         
     }
 
@@ -46,23 +44,25 @@ public class Slot : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        clicker.SetTileSample(cardHolder);
-        clicker.OnTilePlaced += RemoveTile;
+        HandManager.Main.SetActiveTile(cardHolder);
+
+        //clicker.SetTileSample(cardHolder);
+        grid.OnTilePlaced += RemoveTile;
     }
 
     public void RemoveTile(object sender, EventArgs e)
     {
         ReceiveDefaultSlot(defaultSlot);
-        deck.DrawnCard();
-        clicker.OnTilePlaced -= RemoveTile;
+        DeckManager.Main.DrawnCard();
+        grid.OnTilePlaced -= RemoveTile;
     }
 
     public void ResetTile(object sender, EventArgs e)
     {
-        deck.AddToDeck(cardHolder);
+        DeckManager.Main.AddToDeck(cardHolder);
         ReceiveDefaultSlot(defaultSlot);
-        deck.DrawnCard();
-        clicker.OnTilePlaced -= RemoveTile;
+        DeckManager.Main.DrawnCard();
+        grid.OnTilePlaced -= RemoveTile;
     }
 
 }

@@ -6,7 +6,7 @@ public class Node : MonoBehaviour
 {
     private Movement movement;
     private BeetlesManager beetlesManager;
-    [SerializeField] bool inverseDirection = false;
+    [SerializeField] private bool inverseDirection = false;
 
     private void Awake()
     {
@@ -16,20 +16,23 @@ public class Node : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.GetComponentInParent<Movement>().isActivePath)
+        if (other.gameObject.CompareTag("Node"))
         {
-            
-            if(!movement.isActivePath)
+            if(other.GetComponentInParent<Movement>().isActivePath)
             {
-                movement.inverted = inverseDirection;
                 
+                if(!movement.isActivePath)
+                {
+                    movement.inverted = inverseDirection;
+                    
+                }
+                if(movement == beetlesManager.GetInitialMovement() && beetlesManager.GetCloseAllowance() == 1)
+                {
+                    other.GetComponentInParent<Movement>().inverted = true; 
+                }
+                movement.SetEntryPoint(this.transform);
+                beetlesManager.AddToActivePath(movement);
             }
-            if(movement == beetlesManager.GetInitialMovement() && beetlesManager.GetCloseAllowance() == 1)
-            {
-                other.GetComponentInParent<Movement>().inverted = true; 
-            }
-            movement.SetEntryPoint(this.transform);
-            beetlesManager.AddToActivePath(movement);
         }
     }
 }
