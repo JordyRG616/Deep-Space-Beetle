@@ -85,7 +85,6 @@ public class Cell : MonoBehaviour
 
     public void RotatePreview(object sender, EventArgs e)
     {
-        Debug.Log(InputMaster.Main.AngleToRotate);
         if(previewTile != null)
         {
             Vector3 axis = this.transform.position + new Vector3(1.65f / 2, 1.65f / 2, 0);

@@ -17,8 +17,7 @@ public class StraightMovement : MovementTemplate
 
         while(elapsedTime <= totalTime)
         {
-            Vector3 move = Vector3.Lerp(points[0].position, points[2].position, (elapsedTime / totalTime) * 2);
-            Vector3 nextPoint = Vector3.LerpUnclamped(points[0].position, points[2].position, 2 * (elapsedTime / totalTime) + 0.1f);
+            Vector3 move = Vector3.Lerp(points[0].position, points[2].position, elapsedTime / totalTime);
 
             target.transform.position = move;
             
@@ -27,6 +26,7 @@ public class StraightMovement : MovementTemplate
         }
 
         isFinished = true;
+        elapsedTime = 0f;
         StopCoroutine("StraightMove");
     }
 

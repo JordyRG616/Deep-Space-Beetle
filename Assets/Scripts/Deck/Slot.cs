@@ -49,6 +49,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     {
         HandManager.Main.SetActiveTile(cardHolder);
         particle.Play(true);
+        InputMaster.Main.ResetAngle();
         //clicker.SetTileSample(cardHolder);
         grid.OnTilePlaced += RemoveTile;
     }

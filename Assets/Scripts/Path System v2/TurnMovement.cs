@@ -27,9 +27,8 @@ public class TurnMovement : MovementTemplate
             elapsedTime += 0.01f;
         }
 
-        elapsedTime = 0f;
-
         AdjustRotation(target, points[1].position, points[2].position);
+        elapsedTime = 0f;
 
         while(elapsedTime <= totalTime *0.25f)
         {
@@ -45,6 +44,7 @@ public class TurnMovement : MovementTemplate
         }
 
         isFinished = true;
+        elapsedTime = 0f;
         StopCoroutine("TurnMove");
     }
 

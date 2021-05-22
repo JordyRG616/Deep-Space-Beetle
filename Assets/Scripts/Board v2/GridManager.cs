@@ -18,19 +18,17 @@ public class GridManager : MonoBehaviour
     private void Awake()
     {
         GenerateGrid();
+    }
+
+    public void SetInitialTile()
+    {
         int x = UnityEngine.Random.Range(1, Xsize - 1);
         int y = UnityEngine.Random.Range(1, Ysize - 1);
 
         InitialTile = GetCell(x, y).InstantiateTile(DeckManager.Main.GetCard());
-
     }
 
-    void Start()
-    {
-        InstantiateShip();
-    }
-
-    private void InstantiateShip()
+    public void InstantiateShip()
     {
         MovementProcessor initialMovement = InitialTile.GetComponentInChildren<MovementProcessor>();
         NodeComponent[] nodes = initialMovement.GetComponentsInChildren<NodeComponent>();

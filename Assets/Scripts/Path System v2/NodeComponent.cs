@@ -12,9 +12,15 @@ public class NodeComponent : MonoBehaviour
     private NodeComponent otherNode;
     public bool isInitialNode;
 
-    private void Awake()
+    public void SetEndNodeAsInitial()
     {
-        
+        endNode.isInitialNode = true;
+        endNode.tag = "InitialNode";
+    }
+
+    public (NodeComponent mid, NodeComponent end) GetNodes()
+    {
+        return (midNode, endNode);
     }
 
     private void PassNodes(NodeComponent node1, NodeComponent node2, NodeComponent node3)
@@ -42,22 +48,32 @@ public class NodeComponent : MonoBehaviour
             }
             else
             {
-                StartCoroutine(WaitForActivation());
+                StartCoroutine(WaitForActivation(endNode, midNode, gameObject.GetComponent<NodeComponent>()));
             }
         } else if(other.gameObject.CompareTag("InitialNode") && isActiveNode)
         {
+            otherNode = other.GetComponent<NodeComponent>();
+            otherNode.ActivateMovement(otherNode, otherNode.GetNodes().mid, otherNode.GetNodes().end);
             ship.loopClosed = true;
             ship.StartLoop();
+        } else if(CompareTag("InitialNode") && other.gameObject.CompareTag("Node"))
+        {
+            otherNode = other.GetComponent<NodeComponent>();
+            if(otherNode.isActiveNode == false)
+            {
+                otherNode.SetEndNodeAsInitial();
+                StartCoroutine(WaitForActivation(gameObject.GetComponent<NodeComponent>(), midNode, endNode));
+            }
         }
     }
 
-    private IEnumerator WaitForActivation()
+    public IEnumerator WaitForActivation(NodeComponent start, NodeComponent mid, NodeComponent end)
     {
         yield return new WaitUntil(() => otherNode.isActiveNode == true);
 
-        ActivateMovement(endNode, midNode, gameObject.GetComponent<NodeComponent>());
+        ActivateMovement(start, mid, end);
 
-        StopCoroutine(WaitForActivation());
+        StopCoroutine("WaitForActivation");
     }
 
     public void ActivateMovement(NodeComponent node1, NodeComponent node2, NodeComponent node3)

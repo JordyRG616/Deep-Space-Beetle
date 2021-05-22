@@ -53,5 +53,8 @@ public class InputMaster : MonoBehaviour
         }
     }
 
-    
+    public void ResetAngle()
+    {
+        AngleToRotate = 0;
+    }
 }

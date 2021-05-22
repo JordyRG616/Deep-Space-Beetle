@@ -38,10 +38,14 @@ public class DeckManager : MonoBehaviour
     {
         Shuffle();
         hand = FindObjectOfType<HandManager>();
+        
     }
 
     void Start()
     {
+        FindObjectOfType<GridManager>().SetInitialTile();
+        FindObjectOfType<GridManager>().InstantiateShip();
+
         for (int i = 0; i <+ handSize; i++)
         {
             DrawnCard();
