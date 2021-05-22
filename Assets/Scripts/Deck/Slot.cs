@@ -47,6 +47,17 @@ public class Slot : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if(eventData.button == PointerEventData.InputButton.Left)
+        {
+            SelectTile();
+        } else if(eventData.button == PointerEventData.InputButton.Right)
+        {
+            ResetTile();
+        }
+    }
+
+    private void SelectTile()
+    {
         HandManager.Main.SetActiveTile(cardHolder);
         particle.Play(true);
         InputMaster.Main.ResetAngle();
@@ -62,7 +73,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         particle.Stop(true);
     }
 
-    public void ResetTile(object sender, EventArgs e)
+    public void ResetTile()
     {
         DeckManager.Main.AddToDeck(cardHolder);
         ReceiveDefaultSlot(defaultSlot);
