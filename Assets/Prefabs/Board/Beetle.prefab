@@ -10,8 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2129618577390286932}
   - component: {fileID: 2129618577390286935}
-  - component: {fileID: 2379722137179950501}
-  - component: {fileID: 2379722137179950502}
   m_Layer: 0
   m_Name: Beetle
   m_TagString: Untagged
@@ -84,31 +82,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2379722137179950501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2129618577390286929}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ca7638240e538d4a9ffa24d4b306d35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5.5
---- !u!114 &2379722137179950502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2129618577390286929}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ef81b9f77ad43647b9685123a61e4db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  beetle: {fileID: 2379722137179950501}
-  initialMovement: {fileID: 0}
-  nodePosition: {fileID: 0}

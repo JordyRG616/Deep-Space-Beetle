@@ -49,9 +49,7 @@ public class BeetlesManager : MonoBehaviour
     }
 
     private void Update()
-    {
-        Debug.Log(state);
-        
+    {        
         if(activePath.Count == 0  && state == PathState.Closed)
         {
             StartCoroutine(WaitForLoop(beetle));

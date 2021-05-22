@@ -6,10 +6,12 @@ using UnityEngine;
 public class GridManager : MonoBehaviour
 {
     [SerializeField] private GameObject emptyCell;
-    private Cell[,] cells = new Cell[100,100];
     [SerializeField] private int Xsize, Ysize;
     [SerializeField] private float cellSize;
+    [SerializeField] private GameObject beetle;
+    private Cell[,] cells = new Cell[100,100];
     public GameObject InitialTile { get; private set;}
+    
 
     public event EventHandler OnTilePlaced;
 
@@ -25,7 +27,31 @@ public class GridManager : MonoBehaviour
 
     void Start()
     {
-        FindObjectOfType<BeetlesManager>().StartMovement();
+        InstantiateShip();
+    }
+
+    private void InstantiateShip()
+    {
+        MovementProcessor initialMovement = InitialTile.GetComponentInChildren<MovementProcessor>();
+        NodeComponent[] nodes = initialMovement.GetComponentsInChildren<NodeComponent>();
+        /*GameObject initialNode = nodes[0].gameObject;
+        Destroy(nodes[0]);
+        nodes[0] = initialNode.AddComponent<InitialNode>();
+        initialNode.tag = "Untagged";*/
+        nodes[0].isInitialNode = true;
+        nodes[0].gameObject.tag = "InitialNode";
+        initialMovement.SetNodeList(nodes[0], nodes[1], nodes[2]);
+
+        BeetleShip ship = Instantiate(beetle, this.transform.position, Quaternion.identity).GetComponent<BeetleShip>();
+
+        foreach(NodeComponent node in nodes)
+        {
+            node.isActiveNode = true;
+            node.SetBeetleShip(ship);
+        }
+
+        ship.AddToQueue(initialMovement);
+
     }
 
     private void GenerateGrid()

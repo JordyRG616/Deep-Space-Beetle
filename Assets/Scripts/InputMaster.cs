@@ -43,4 +43,6 @@ public class InputMaster : MonoBehaviour
             OnRightMousePressed?.Invoke(this, EventArgs.Empty);
         }
     }
+
+    
 }

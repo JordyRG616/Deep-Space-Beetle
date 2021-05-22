@@ -72,7 +72,6 @@ public class DeckManager : MonoBehaviour
     {
         deck.Enqueue(item);
         Shuffle();
-        Debug.Log(deck.Count);
     }
 
     public GameObject GetCard()

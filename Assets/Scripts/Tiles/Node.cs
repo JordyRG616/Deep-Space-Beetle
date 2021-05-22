@@ -28,11 +28,19 @@ public class Node : MonoBehaviour
                 }
                 if(movement == beetlesManager.GetInitialMovement() && beetlesManager.GetCloseAllowance() == 1)
                 {
-                    other.GetComponentInParent<Movement>().inverted = true; 
+                    if(other.GetComponent<Node>().ReturnInverted() == false)
+                    {
+                        other.GetComponentInParent<Movement>().inverted = true; 
+                    }
                 }
                 movement.SetEntryPoint(this.transform);
                 beetlesManager.AddToActivePath(movement);
             }
         }
+    }
+
+    public bool ReturnInverted()
+    {
+        return inverseDirection;
     }
 }

@@ -10,7 +10,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     private GameObject cardHolder;
     private GridManager grid;
     private GameObject defaultSlot;
-    private InputMaster input;
 
     private void Awake()
     {
@@ -18,7 +17,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         grid = FindObjectOfType<GridManager>();
         //input = FindObjectOfType<InputMaster>();
 
-        InputMaster.Main.OnRightMousePressed += ResetTile;
+        //InputMaster.Main.OnRightMousePressed += ResetTile;
         
     }
 
@@ -45,7 +44,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         HandManager.Main.SetActiveTile(cardHolder);
-
         //clicker.SetTileSample(cardHolder);
         grid.OnTilePlaced += RemoveTile;
     }

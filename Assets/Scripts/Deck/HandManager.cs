@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -34,6 +34,8 @@ public class HandManager : MonoBehaviour
     private void Awake()
     {
         slots = FindObjectsOfType<Slot>();
+
+        InputMaster.Main.OnRightMousePressed += RotateTile;        
     }
 
     public void AddCard(GameObject card)
@@ -57,5 +59,13 @@ public class HandManager : MonoBehaviour
     public void SetActiveTile(GameObject tile)
     {
         activeTile = tile;
+    }
+
+    public void RotateTile(object sender, EventArgs e)
+    {
+        if(activeTile != null)
+        {
+            activeTile.transform.Rotate(Vector3.forward, 90f, Space.World);
+        }
     }
 }

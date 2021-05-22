@@ -405,63 +405,63 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!1001 &1176561655
+--- !u!1001 &1231019559
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2129618577390286929, guid: 6b8739b7a0b676e4cb06e781f178f780, type: 3}
-      propertyPath: m_Name
-      value: Beetle
-      objectReference: {fileID: 0}
-    - target: {fileID: 2129618577390286932, guid: 6b8739b7a0b676e4cb06e781f178f780, type: 3}
+    - target: {fileID: 1726184564009153068, guid: 8620ccac16de0b646933d041271b6e7f, type: 3}
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 2129618577390286932, guid: 6b8739b7a0b676e4cb06e781f178f780, type: 3}
+    - target: {fileID: 1726184564009153068, guid: 8620ccac16de0b646933d041271b6e7f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.5
+      value: -4.6701508
       objectReference: {fileID: 0}
-    - target: {fileID: 2129618577390286932, guid: 6b8739b7a0b676e4cb06e781f178f780, type: 3}
+    - target: {fileID: 1726184564009153068, guid: 8620ccac16de0b646933d041271b6e7f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.53
+      value: 3.1542559
       objectReference: {fileID: 0}
-    - target: {fileID: 2129618577390286932, guid: 6b8739b7a0b676e4cb06e781f178f780, type: 3}
+    - target: {fileID: 1726184564009153068, guid: 8620ccac16de0b646933d041271b6e7f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -14.881487
       objectReference: {fileID: 0}
-    - target: {fileID: 2129618577390286932, guid: 6b8739b7a0b676e4cb06e781f178f780, type: 3}
+    - target: {fileID: 1726184564009153068, guid: 8620ccac16de0b646933d041271b6e7f, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2129618577390286932, guid: 6b8739b7a0b676e4cb06e781f178f780, type: 3}
+    - target: {fileID: 1726184564009153068, guid: 8620ccac16de0b646933d041271b6e7f, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2129618577390286932, guid: 6b8739b7a0b676e4cb06e781f178f780, type: 3}
+    - target: {fileID: 1726184564009153068, guid: 8620ccac16de0b646933d041271b6e7f, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2129618577390286932, guid: 6b8739b7a0b676e4cb06e781f178f780, type: 3}
+    - target: {fileID: 1726184564009153068, guid: 8620ccac16de0b646933d041271b6e7f, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2129618577390286932, guid: 6b8739b7a0b676e4cb06e781f178f780, type: 3}
+    - target: {fileID: 1726184564009153068, guid: 8620ccac16de0b646933d041271b6e7f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2129618577390286932, guid: 6b8739b7a0b676e4cb06e781f178f780, type: 3}
+    - target: {fileID: 1726184564009153068, guid: 8620ccac16de0b646933d041271b6e7f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2129618577390286932, guid: 6b8739b7a0b676e4cb06e781f178f780, type: 3}
+    - target: {fileID: 1726184564009153068, guid: 8620ccac16de0b646933d041271b6e7f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1726184564009153070, guid: 8620ccac16de0b646933d041271b6e7f, type: 3}
+      propertyPath: m_Name
+      value: DeckManager
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6b8739b7a0b676e4cb06e781f178f780, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 8620ccac16de0b646933d041271b6e7f, type: 3}
 --- !u!1001 &1266711145
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -593,6 +593,7 @@ MonoBehaviour:
   Xsize: 6
   Ysize: 6
   cellSize: 1.65
+  beetle: {fileID: 2129618577390286929, guid: 3d0669026ed21f642979fb8564918dc9, type: 3}
 --- !u!4 &1320957774
 Transform:
   m_ObjectHideFlags: 0
