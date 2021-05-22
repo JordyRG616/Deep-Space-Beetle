@@ -460,7 +460,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeckManager
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1196419892, guid: 8620ccac16de0b646933d041271b6e7f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8620ccac16de0b646933d041271b6e7f, type: 3}
 --- !u!1001 &1266711145
 PrefabInstance:

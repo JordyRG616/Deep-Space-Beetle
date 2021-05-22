@@ -30,6 +30,7 @@ public class InputMaster : MonoBehaviour
 
     public event EventHandler OnLeftMousePressed;
     public event EventHandler OnRightMousePressed;
+    public float AngleToRotate {get; private set;}
 
     private void Update()
     {
@@ -40,6 +41,14 @@ public class InputMaster : MonoBehaviour
 
         if(Input.GetMouseButtonDown(1))
         {
+            if(AngleToRotate < 270)
+            {
+                AngleToRotate += 90f;;
+            } else 
+            {
+                AngleToRotate = 0;
+            }
+
             OnRightMousePressed?.Invoke(this, EventArgs.Empty);
         }
     }

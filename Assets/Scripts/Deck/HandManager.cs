@@ -59,6 +59,10 @@ public class HandManager : MonoBehaviour
     public void SetActiveTile(GameObject tile)
     {
         activeTile = tile;
+        foreach(ParticleSystem particle in GetComponentsInChildren<ParticleSystem>())
+        {
+            particle.Stop(true);
+        }
     }
 
     public void RotateTile(object sender, EventArgs e)

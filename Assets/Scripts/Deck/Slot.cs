@@ -10,11 +10,15 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     private GameObject cardHolder;
     private GridManager grid;
     private GameObject defaultSlot;
+    private ParticleSystem particle;
 
     private void Awake()
     {
         image = GetComponent<Image>();
         grid = FindObjectOfType<GridManager>();
+
+        particle = GetComponentInChildren<ParticleSystem>();
+        particle.Stop(true);
         //input = FindObjectOfType<InputMaster>();
 
         //InputMaster.Main.OnRightMousePressed += ResetTile;
@@ -44,6 +48,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         HandManager.Main.SetActiveTile(cardHolder);
+        particle.Play(true);
         //clicker.SetTileSample(cardHolder);
         grid.OnTilePlaced += RemoveTile;
     }
@@ -53,6 +58,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         ReceiveDefaultSlot(defaultSlot);
         DeckManager.Main.DrawnCard();
         grid.OnTilePlaced -= RemoveTile;
+        particle.Stop(true);
     }
 
     public void ResetTile(object sender, EventArgs e)

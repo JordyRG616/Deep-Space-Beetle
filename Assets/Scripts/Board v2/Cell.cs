@@ -53,10 +53,11 @@ public class Cell : MonoBehaviour
         GameObject tileToSpawn = Instantiate(tile, this.transform.position, Quaternion.identity, this.transform.parent);
 
         Vector3 axis = this.transform.position + new Vector3(1.65f / 2, 1.65f / 2, 0);
-        tileToSpawn.transform.RotateAround(axis, Vector3.forward, angle);
+        tileToSpawn.transform.RotateAround(axis, Vector3.forward, InputMaster.Main.AngleToRotate);
 
         Destroy(this.gameObject);
         grid.TriggerOnTilePlaced();
+        HandManager.Main.SetActiveTile(null);
         return tileToSpawn;
     }
 
@@ -66,6 +67,10 @@ public class Cell : MonoBehaviour
         color.a = 0.3f;
 
         previewTile = Instantiate((GameObject)Resources.Load("Preview"), this.transform.position, Quaternion.identity);
+
+        Vector3 axis = this.transform.position + new Vector3(1.65f / 2, 1.65f / 2, 0);
+        previewTile.transform.RotateAround(axis, Vector3.forward, InputMaster.Main.AngleToRotate);
+        
         previewTile.GetComponent<SpriteRenderer>().sprite = baseTile.GetComponent<SpriteRenderer>().sprite;
         previewTile.GetComponent<SpriteRenderer>().color = color;
     }
@@ -80,18 +85,11 @@ public class Cell : MonoBehaviour
 
     public void RotatePreview(object sender, EventArgs e)
     {
+        Debug.Log(InputMaster.Main.AngleToRotate);
         if(previewTile != null)
         {
             Vector3 axis = this.transform.position + new Vector3(1.65f / 2, 1.65f / 2, 0);
             previewTile.transform.RotateAround(axis, Vector3.forward, 90f);
-
-            if(angle < 360)
-            {
-                angle += 90f;;
-            } else 
-            {
-                angle = 0;
-            }
         }
     }
 

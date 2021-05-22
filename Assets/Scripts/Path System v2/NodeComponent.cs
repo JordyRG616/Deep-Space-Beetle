@@ -44,7 +44,7 @@ public class NodeComponent : MonoBehaviour
             {
                 StartCoroutine(WaitForActivation());
             }
-        } else if(other.gameObject.CompareTag("InitialNode"))
+        } else if(other.gameObject.CompareTag("InitialNode") && isActiveNode)
         {
             ship.loopClosed = true;
             ship.StartLoop();
