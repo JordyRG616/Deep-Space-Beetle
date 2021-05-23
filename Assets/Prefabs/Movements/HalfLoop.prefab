@@ -48,6 +48,7 @@ MonoBehaviour:
   midNode: {fileID: 7947596650481574114}
   endNode: {fileID: 929021277031110189}
   isActiveNode: 0
+  isInitialNode: 0
 --- !u!61 &9014313603083575519
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -120,7 +121,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1841705455167792600}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.825, y: 0.335, z: 0}
+  m_LocalPosition: {x: 0.825, y: 0.53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6737699097633545005}
@@ -141,6 +142,7 @@ MonoBehaviour:
   midNode: {fileID: 929021277031110189}
   endNode: {fileID: 1724429786860941701}
   isActiveNode: 0
+  isInitialNode: 0
 --- !u!1 &3865562933186394505
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,6 +191,7 @@ MonoBehaviour:
   midNode: {fileID: 7947596650481574114}
   endNode: {fileID: 1724429786860941701}
   isActiveNode: 0
+  isInitialNode: 0
 --- !u!61 &7034162630740454362
 BoxCollider2D:
   m_ObjectHideFlags: 0
